@@ -1,0 +1,30 @@
+package it.unibo.shapes.impl;
+import it.unibo.shapes.api.Polygon;
+
+public class Triangle implements Polygon {
+    private final double l1;
+    private final double l2;
+    private final double l3;
+
+    public Triangle(final double l1, final double l2, final double l3) {
+        this.l1 = l1;
+        this.l2 = l2;
+        this.l3 = l3;
+    }
+
+    public double area() {
+        final double semiPerimeter = this.perimeter() / 2;
+        return Math.sqrt(
+            semiPerimeter * (semiPerimeter - this.l1) * (semiPerimeter - this.l2) * (semiPerimeter - this.l3)
+        );
+    }
+
+    public double perimeter() {
+        return this.l1 + this.l2 + this.l3;
+    }
+
+    public int getEdgeCount() {
+        return 3;
+    }
+
+}
